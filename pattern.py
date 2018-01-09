@@ -4,8 +4,6 @@ p = "lala"
 
 def indexof(sentence, pattern):
     i = 0
-    j = 0
-
     while i + 1 != len(sentence):
         j = 0
         while pattern[j] == sentence[i + j - 1]:
