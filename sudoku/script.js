@@ -1,7 +1,7 @@
 var sudokuData = [
-    [7, 2, '', '', 5, '', '', '', ''], ['', '', '', '', '', 9, '', 3, 8], ['', '', '', '', '', '', '', '', ''],
-    ['', '', '', '', '', 3, '', '', 2], [4, '', '', '', '', '', '', '', 3], [5, '', '', 8, '', '', '', '', ''],
-    ['', '', '', '', '', '', '', '', ''], [2, 5, '', 6, '', '', '', '', ''], ['', '', '', '', 3, '', '', 1, 9]
+    ['', '', 6, 4, 7, '', 9, 3, ''], [4, '', 9, '', 2, '', 7, '', 1], ['', 7, '', '', '', 9, 8, '', ''],
+    ['', 4, 7, '', '', '', '', '', ''], ['', 9, '', 8, '', 3, '', 4, ''], ['', '', '', '', '', '', 5, 8, ''],
+    ['', '', 3, 7, '', '', '', 2, ''], [2, '', 7, '', 6, '', 9, '', 5], ['', 6, 5, '', 2, 1, 7, '', '']
 ];
 
 /**
@@ -45,42 +45,31 @@ function generateSudoku(target, data) {
     }
 }
 
-function solve_sudoku(sudoku) {
-    for (var i = 0; i < sudoku.length; i++) {
-        for (var j = 0; j < sudoku[i].length; j++) {
-            if (sudoku[i][j] == '') {
-                sudoku[i][j] = Math.floor((Math.random() * 9) + 1);
-                while (sudoku[i][j] == sudoku[i][j + 1]
-                || sudoku[i][j] == sudoku[i][j + 2]
-                || sudoku[i][j] == sudoku[i][j - 1]
-                || sudoku[i][j] == sudoku[i][j - 2]) {
-                    sudoku[i][j] = Math.floor((Math.random() * 9) + 1);
-                }
+function solve(sudoku) {
+    
+    for (var array in sudoku) {
+        for (var cell in array) {
+            if (cell === '') {
+
             }
         }
     }
-    return (sudoku);
 }
 
-function check_cell(data) {
-    var tab = [];
-    for (var i = 0; i < data.length; i++) {
-        tab[i] += data[i].slice(0);
-    }
-    for (var i = 0; i < tab.length; i++) {
-        for (var j = 0; j < tab[i].length; j++) {
-            if (tab[i][j] === '') {
-                tab[i][j] = 'true';
+function is_empty(sudoku) {
+    for (var x = 0; x < sudoku.length; x++) {
+        for (var y = 0; y < sudoku[x].length; y++) {
+            if (sudoku[x][y] === ''){
+                return true;
             }
-            else {
-                tab[i][j] = 'false';
+            else{
+                return false;
             }
         }
     }
-    return tab;
 }
 
-tab2 = check_cell(sudokuData);
-console.log(tab2);
 generateSudoku('#sudoku', sudokuData);
-generateSudoku('#sudoku', solve_sudoku(sudokuData));
+
+
+
