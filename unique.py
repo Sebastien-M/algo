@@ -17,7 +17,7 @@ def checkunique(array):
     for item in to_delete:
         if item in array:
             array.remove(item)
-    print(array)
+    return(array)
 
 
-checkunique(notUnique)
+print checkunique(notUnique)
