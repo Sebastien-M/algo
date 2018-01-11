@@ -11,7 +11,7 @@ def checkunique(array):
             if i == j:
                 pass
             elif array[i] == string:
-                    to_delete.append(array[i])
+                to_delete.append(array[i])
             i += 1
         j += 1
     for item in to_delete:
